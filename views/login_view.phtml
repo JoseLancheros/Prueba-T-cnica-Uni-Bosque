@@ -1,0 +1,29 @@
+<?php
+$e=$_GET['e'];
+?>
+
+<body>
+<div align="center">
+<form id="form1" name="form1" method="POST" action="?w=panel">
+    <table class="uss" align="center">
+	
+        <td align="center">
+		<h2 style="color:white">SOLUTIONS S.A</h2>
+		<img src="img/login.png" class="img" title="Identificate" width="120" height="80"></img></td><tr>
+		<td align="center">
+		  <?php
+
+		  if($e==1){echo "<font color='red'>Datos errados</font>";}
+	      elseif($e==2){echo "<font color='white'>para enviar mensajes debe autenticarse </font>";}
+          else{echo "<font color='white'>Ingrese sus datos </font>";}?>
+	    </td><tr>
+		<td>
+		<label>N°identificación:</label>
+		<input type="text" class="textbox" name="user" id="user" placeholder='N° identificación' required ></input><br>
+        <label>Contraseña:</label>
+	    <input type="password" class="textbox"  name="pass" id="pass" placeholder='Contraseña' required ></input><br></td><tr>
+        <td align="center"><input type="submit" value="INGRESAR" style='cursor:pointer'></td>
+    </table>
+</form>
+</div>
+

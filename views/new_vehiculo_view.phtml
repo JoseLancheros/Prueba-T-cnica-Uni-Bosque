@@ -1,0 +1,36 @@
+<div align="center">
+<table align="center">
+<form id="form1" name="form1" method="POST" action="?w=addVehiculo">
+<?php
+	if($vehiculo){
+		$title="Editar vehiculo";
+		foreach ($vehiculo as $dato) {
+			
+			$idVeh=$dato['id'];
+			$placa=$dato['placa'];
+			$capacidad = $dato['capacidad'];
+			$marca=$dato['marca'];
+			$modelo=$dato['modelo'];
+			
+			
+			
+		}
+	}else {
+		$title=" Nuevo vehiculo";
+	}
+	
+?>
+<input type='text' name='idVeh' id='idVeh' value='<?php echo $idVeh;?>' HIDDEN></input>
+
+    <table class="uss" align="center">
+		<th colspan='2'><h3><a class="us" href='?w=panel'><</a> </a><?php echo $title;?></h3></th></tr>
+		<td><label>Placa:</label><input type="text"  maxlength='6' style='text-transform:uppercase' class="textbox" name="placa" id="placa" required value='<?php echo $placa;?>'></input></td><tr>
+        <td><label>Capacidad:</label><input type="number" maxlength='4' class="textbox" name="capacidad" id="capacidad" required value='<?php echo $capacidad;?>'></input></td><tr>
+		<td><label>Marca:</label><input type="text" class="textbox" style='text-transform:uppercase' name="marca" id="marca" required value='<?php echo $marca;?>'></input></td><tr>
+		<td><label>Modelo:</label><input type="number" class="textbox" maxlength='4' name="modelo" id="modelo" required value='<?php echo $modelo;?>'></input></td><tr>	
+        <td align="center"><input type="submit" value="Guardar" style='cursor:pointer'></td>
+    </table>
+</form>
+</table>
+</div>
+	

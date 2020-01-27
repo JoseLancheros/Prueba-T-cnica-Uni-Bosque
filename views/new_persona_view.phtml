@@ -1,0 +1,51 @@
+<div align="center">
+<table  align="center">
+<form id="form1" name="form1" method="POST" action="?w=addPersona">
+    <div align="center" id='resultado'></div>
+	<table class="uss" align="center">
+	<th colspan='2'><h3><a href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Nueva Persona</h3></th></tr>
+		<td><label>Nombres:</label><input type="text" class="textbox" name="nombres" id="nombres" required ></input></td><tr>
+        <td><label>Apellidos:</label><input type="text" class="textbox" name="apellidos" id="apellidos" required ></input></td><tr>
+		<td>
+		<label>Tipo Documento:</label>
+		<select class="textbox" name="tipdocumento" id="tipdocumento" required >
+			<?php 
+				echo "<option value=''>Seleccione...</option>;";
+					foreach ($tipo_documento as $documento) {
+						echo "<option required value=".$documento['id'].">".$documento['nombre']."</option>";	
+					}
+			?>
+		</select>
+		</td><tr>
+		<td><label>Numero:</label><input type="number" class="textbox" name="numident" id="numident" onkeyup='valida_usuario()' required ></input></td><tr>
+		<td><label>N°. Licencia:</label><input type="number" class="textbox"name="numlic" id="numlic" ></input></td><tr>
+		<td><label>Rol:</label>
+		<select class="textbox" name="rol" id="rol" required >
+			<?php 
+				echo "<option value=''>Seleccione...</option>;";
+					foreach ($roles_persona as $rol) {
+						echo "<option required value=".$rol['id'].">".$rol['nombre']."</option>";	
+					}
+			?>
+		</select>
+		</td><tr>
+		<td><label>Contraseña:</label><input type="password" class="textbox" name="contrasena" id="contrasena" required ></input></td><tr>
+		<td><label>Estado:</label>
+		<select class="textbox" name="estado" id="estado" required >
+			<?php 
+				echo "<option value=''>Seleccione...</option>;";
+					foreach ($estados_persona as $estado) {
+						echo "<option required value=".$estado['id'].">".$estado['nombre']."</option>";	
+					}
+			?>
+		</select>
+		</td><tr><tr><tr><tr>
+			
+        <td align="center"><input type="submit" value="Guardar" style='cursor:pointer'></td>
+    </table>
+</form>
+
+
+</table>
+</div>
+	

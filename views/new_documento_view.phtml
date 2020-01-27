@@ -1,0 +1,74 @@
+<div align="center">
+<table  align="center">
+<form id="form1" name="form1" method="POST" action="?w=addDocumento">
+<?php
+	if($documento){
+		$title="Editar documento";
+		foreach ($documento as $dato) {
+			
+			$idDoc=$dato['id'];
+			$numero=$dato['numero'];
+			$tipodocumento = $dato['tipodocumento'];
+			$fechaini=$dato['fecha_inicio'];
+			$fechafin=$dato['fecha_vencimiento'];
+			$idvehiculo=$dato['idvehiculo'];
+			
+			
+		}
+	}else {
+		$title=" Nuevo documento";
+	}
+	
+?>
+<input type='text' name='idDoc' id='idDoc' value='<?php echo $idDoc;?>' HIDDEN></input>
+ 
+    <table class="uss" align="center">
+	
+		<th colspan='2'><h3> <a href='?w=panel'><img title="Atras" src="img/left.gif"  /></a> <?php echo $title;?></h3></th></tr>
+		<td><label>Numero:</label><input type="number" class="textbox" name="numero" id="numero" required value='<?php echo $numero;?>'></input></td></tr>
+        <td><label>Tipo:</label>
+		
+		<select class="textbox" name="tipodocumento" id="tipodocumento">
+		<?php
+			echo "<option required > Seleccione...</option>";
+			foreach ($tipDoc as $tipo) {
+				if($tipodocumento==$tipo['tipodocumento']){
+						echo "<option required value=".$tipo['id']." selected>".$tipo['nombre']."</option>";	
+					}else{
+						echo "<option required value=".$tipo['id'].">".$tipo['nombre']."</option>";	
+					}
+				}
+		?>
+
+			
+		</select>
+		
+		</td><tr>
+		<td><label>F. inicio:</label><input type="date" class="textbox"name="fechaini" id="fechaini" required placeholder='YYYY-MM-DD' value='<?php echo $fechaini;?>'></input></td></tr>
+		<td><label>F. Vencimiento:</label><input type="date" class="textbox" name="fechafin" id="fechafin" required placeholder='YYYY-MM-DD' value='<?php echo $fechafin; ?>'></input></td><tr>
+		<td>
+		<label>P. Vehiculo:</label>
+		
+		<select class="textbox" name="idvehiculo" id="idvehiculo">
+			<?php
+			echo "<option required > Seleccione...</option>";
+			foreach ($placas as $placa) {
+				if($idvehiculo==$placa['id']){
+						echo "<option required value=".$placa['id']." selected>".$placa['placa']."</option>";	
+					}else{
+						echo "<option required value=".$placa['id'].">".$placa['placa']."</option>";	
+					}
+				}
+		?>
+		</select>
+		
+		</td></tr>
+			
+        <td align="center"><input type="submit" value="Guardar" style='cursor:pointer'></td>
+    </table>
+</form>
+
+
+</table>
+</div>
+	

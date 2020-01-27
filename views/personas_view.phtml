@@ -1,0 +1,29 @@
+<div align="center">
+
+<table  align="center">
+<th class="uss" colspan='7'><h3><a href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Personal <a class="us" href='?w=NuevaPersona'>+</a></h3></th></tr>
+<th class="uss">Nombres</th>
+<th class="uss">Apellidos</th>
+<th class="uss">Tipo Documento</th>
+<th class="uss">N° Identificacion</th>
+<th class="uss">N° Licencia</th>
+<th class="uss">Rol</th>
+<th class="uss">Estado</th><tr>
+<?php
+foreach ($datos as $dato) {
+					
+	echo "<td class='tdcolor'>".$dato['nombres']."</td>
+	<td class='tdcolor'>".$dato['apellidos']."</td>
+	<td class='tdcolor'>".$dato['TipoDocumento']."</td>
+	<td class='tdcolor'>".$dato['NumIdent']."</td>
+	<td class='tdcolor'>".$dato['NumLic']."</td>
+	<td class='tdcolor'>".$dato['Rol']."</td>
+	<td class='tdcolor'>".$dato['Estado']."</td>
+	<td> - </td></tr>";
+						
+	}
+?>
+
+</table>
+</div>
+	

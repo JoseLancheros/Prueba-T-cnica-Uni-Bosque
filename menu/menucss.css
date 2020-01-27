@@ -1,0 +1,109 @@
+body{
+background-image:url('img/Music_fondo.jpg');
+background-repeat:no-repeat;
+}
+
+ul#menu-horizontal li 
+{
+float: left;
+display: inline;
+position: relative;
+
+ border-radius: 10px;
+    list-style-type: none;
+    margin: 0 auto; /* si queremos centrarlo */
+    padding: 0;
+	
+	 /* su ancho dependerán de los textos */
+    height: 40px; 
+   
+    /* el color de fondo */
+	
+    background: #555;
+    background: -moz-linear-gradient(#555,#222);
+    background: -webkit-linear-gradient(#555,#222);
+    background: -o-linear-gradient(#555,#222);
+    background: -ms-linear-gradient(#555,#222);
+    background: linear-gradient(#555,#222);
+	
+}
+ 
+
+ul#menu-horizontal ul {
+display: none;
+position: relative;
+top: 14;
+left:0;
+margin:0;
+padding:0;
+background:#ccccc;
+
+}
+ 
+ul#menu-horizontal ul li {
+display: block !important;
+
+}
+ 
+ul#menu-horizontal li:hover ul{
+display: none;
+
+}
+ 
+ul#menu-horizontal li:hover ul{
+display: block;
+font-family:Comic Sans MS;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+	
+}
+   
+#menu-horizontal {
+width:500px;
+margin:0 auto;
+text-decoration: none;
+}#menu-horizontal a{
+
+
+
+border-left: 1px solid #000;
+border-right: 1px solid #666;
+text-decoration: none;
+font-family:Comic Sans MS;
+color:white;
+}
+ 
+#menu-horizontal li {
+margin:0 1px;
+width:98px;
+min-height:19px;
+text-align:center;
+background:#BBB;
+list-style:none;
+padding:2px 0;
+text-decoration: none;
+    
+	border-left: 1px solid #000;
+    border-right: 1px solid #666;
+    color: #EEE;
+    display: block;
+    font-family:Comic Sans MS;
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 20px;
+    padding: 0 14px;
+    margin: 6px 10;
+    text-decoration: none;
+    /* animamos el cambio de color de los textos */
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+	
+}
+
+
+
+ 

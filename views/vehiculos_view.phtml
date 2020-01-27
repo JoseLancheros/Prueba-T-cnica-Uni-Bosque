@@ -1,0 +1,42 @@
+<div align="center">
+
+<table  align="center" >
+<th class="uss" colspan='10'><h3><a href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Vehiculos <a class="us" href='?w=NuevoVehiculo'>+</a></h3></th></tr>
+<th class="uss">Placa</th>
+<th class="uss">Capacidad</th>
+<th class="uss">Soat</th>
+<th class="uss">Tecnico Mecanica</th>
+<th class="uss">Tarjeta Propiedad</th>
+<th class="uss">Marca</th>
+<th class="uss">Modelo</th>
+<th class="uss">Opciones</th><tr>
+<?php
+
+function evalua($val){
+	if($val==0){
+		$valor='Pendiente';
+	}else{
+		$valor=$val;
+		
+	}
+	return $valor;
+}
+
+foreach ($datos as $dato) {
+					
+	$id=$dato['id'];	
+	echo "<th class='tdcolor'>".$dato['placa']."</th>
+	<td class='tdcolor'>".number_format($dato['capacidad'])."kg</td>
+	<td class='tdcolor'>".evalua($dato['idsoat'])."</td>
+	<td class='tdcolor'>".evalua($dato['idtecnicomecanica'])."</td>
+	<td class='tdcolor'>".evalua($dato['idtarjeta'])."</td>
+	<td class='tdcolor'>".$dato['marca']."</td>
+	<td class='tdcolor'>".$dato['modelo']."</td>
+	
+	<td class='tdcolor'><a href='?w=editarVehiculo&d=$id'><input type='button' value='Editar' style='cursor:pointer'></input></a></td></tr>";					
+	}
+?>
+
+</table>
+</div>
+	

@@ -1,0 +1,87 @@
+<form id="form1" name="form1" method="POST" action="?w=Enrutar">
+<div align="center">
+<table>
+<th class="uss" colspan=3>Disponibles</th><tr>
+<th class="uss">Vehiculo</th>
+<th class="uss">Rutas</th><tr>
+<td class="uss">
+<label>Placa:</label> <select class="textbox" name="idvehiculo" id="idvehiculo" required >
+<?php 
+	echo "<option value=''>Seleccione...</option>";	
+		
+	foreach ($vehiculolibre as $vehiculo) {
+					
+		echo "<option required value=".$vehiculo['id'].">".$vehiculo['placa']."</option>";	
+	}
+
+
+	foreach ($tarifas as $tarifa) {
+		$km=$tarifa['km'];
+		$kg=$tarifa['kg'];
+		$costo=$tarifa['costo'];
+		
+	}
+
+?>
+</select>
+</td>
+<td class="uss">
+<label> Ruta:</label>
+<select class="textbox" name="idruta" id="idruta" required >
+<?php 
+	echo "<option >Seleccione...</option>";	
+		
+	foreach ($rutalibre as $ruta) {
+					
+		echo "<option required value=".$ruta['id'].">".$ruta['ruta']."</option>";	
+	}
+?>
+	</select>
+	
+</td></tr>
+<td class="uss" colspan=2 align="center"><input type="submit" value="Asignar" style='cursor:pointer'></td>
+
+</table>
+</div>
+</form>
+<br><br><br>
+<div align="center">
+<table >
+<th class="uss" colspan='10'><h3><a  href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Enrutamiento </h3></th></tr>
+<th class="uss">Codigo</th>
+<th class="uss">Ruta</th>
+<th class="uss">Origen</th>
+<th class="uss">Destino</th>
+<th class="uss">Distancia</th>
+<th class="uss">Peso</th>
+<th class="uss">Valor</th>
+<th class="uss">Estado</th>
+<th class="uss">Vehiculo</th>
+<th class="uss">Opciones</th><tr>
+
+<?php
+
+foreach ($rutavehiculo as $dato) {
+	
+	$id=$dato['id'];
+	/*calcula valor de la ruta */
+	$dis=($dato['distancia']/$km);
+	$pes=($dato['peso']/$kg); 
+	$costot=number_format(($costo*$dis)*$pes)."<br>";
+	
+	echo "<th class='tdcolor'>".$dato['id']."</th>
+	<td class='tdcolor'>".$dato['ruta']."</td>
+	<td class='tdcolor'>".$dato['origen']."</td>
+	<td class='tdcolor'>".$dato['destino']."</td>
+	<td class='tdcolor'>".$dato['distancia']."km</td>
+	<td class='tdcolor'>".$dato['peso']."kg</td>
+	<td class='tdcolor'>$".$costot."</td>
+	<td class='tdcolor'>".$dato['estado']."</td>
+	<td class='tdcolor'>".$dato['placa']."</td>
+	<td class='tdcolor'><a href='?w=editarRuta&d=$id'><input type='button' value='Editar' style='cursor:pointer'></input></a></td></tr>";
+			
+	}
+
+?>
+</table>
+</div>

@@ -1,0 +1,39 @@
+<div align="center">
+ 
+<table align="center">
+<th class="uss" colspan='7'><h3><a href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Documentos <a class="us" href='?w=NuevoDocumento'>+</a></h3></th></tr>
+
+<th class="uss">Tipo Documento</th>
+<th class="uss">Numero</th>
+<th class="uss">Fecha inicio</th>
+<th class="uss">Fecha vencimiento</th>
+<th class="uss">Estado</th>
+<th class="uss">Vehiculo</th>
+<th class="uss">Opciones</th></tr>
+<?php
+
+
+
+foreach ($datos as $dato) {
+	$id=$dato['id'];
+	 $current= date('Y-m-d');
+	if($dato['fecha_vencimiento']<=$current){
+		$vigencia="Vencido";
+	}else{
+		$vigencia="Vigente";
+	}
+	echo "
+	<td class='tdcolor'>".$dato['TipDocumento']."</td>
+	<td class='tdcolor'>".$dato['numero']."</td>
+	<td class='tdcolor'>".$dato['fecha_inicio']."</td>
+	<td class='tdcolor'>".$dato['fecha_vencimiento']."</td>
+	<td class='tdcolor'>".$vigencia."</td>
+	<th class='tdcolor'>".$dato['vehiculo']."</th>
+	<td class='tdcolor'><a href='?w=editarDocumento&d=$id'><input type='button' value='Editar' style='cursor:pointer'></input></a> </td></tr>";
+						
+	}
+?>
+
+</table>
+</div>
+	

@@ -1,0 +1,63 @@
+<table>
+<th class="uss" colspan=3>Tarifa</th><tr>
+<th class="uss">Kilometros</th>
+<th class="uss">Kilogramos</th>
+<th class="uss">Costo</th><tr>
+
+<?php
+
+foreach ($tarifas as $tarifa) {
+	$km=$tarifa['km'];
+	$kg=$tarifa['kg'];
+	$costo=$tarifa['costo'];
+	echo "<td class='tdcolor'>".$km."</td>
+	<td class='tdcolor'>".$kg."</td>
+	<td class='tdcolor'>$".number_format($costo)."</td><tr>";
+}
+?>
+</table>
+
+<div align="center">
+<table >
+<th class="uss" colspan='10'><h3><a  href='?w=panel'><img  title="Atras" src="img/left.gif"  /> </a>Rutas <a class="us" title="Nueva Ruta" href='?w=NuevaRuta'>+</a></h3></th></tr>
+<th class="uss">Codigo</th>
+<th class="uss">Ruta</th>
+<th class="uss">Origen</th>
+<th class="uss">Destino</th>
+<th class="uss">Distancia</th>
+<th class="uss">Tipo de carga</th>
+<th class="uss">Peso</th>
+<th class="uss">Valor</th>
+<th class="uss">Estado</th>
+<th class="uss">Opciones</th><tr>
+
+<?php
+
+foreach ($datos as $dato) {
+	
+	$id=$dato['id'];
+	/*calcula valor de la ruta */
+	$dis=($dato['distancia']/$km)."<br>";
+	$pes=($dato['peso']/$kg)."<br>"; 
+	$costot=number_format(($costo*$dis)*$pes)."<br>";
+	
+	//$tipocarga=explode(',',$dato['tipocarga']);
+	
+	$tipocarga=$dato['tipocarga'];
+	
+	echo "<th class='tdcolor'>".$dato['id']."</th>
+	<td class='tdcolor'>".$dato['ruta']."</td>
+	<td class='tdcolor'>".$dato['origen']."</td>
+	<td class='tdcolor'>".$dato['destino']."</td>
+	<td class='tdcolor'>".$dato['distancia']."km</td>
+	<td class='tdcolor'>".$tipocarga."</td>
+	<td class='tdcolor'>".$dato['peso']."kg</td>
+	<td class='tdcolor'>$".$costot."</td>
+	<td class='tdcolor'>".$dato['estado']."</td>
+	<td class='tdcolor'><a href='?w=editarRuta&d=$id'><input type='button' value='Editar' style='cursor:pointer'></input></a></td></tr>";
+			
+	}
+?>
+</table>
+</div>
+	
